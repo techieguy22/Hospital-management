@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Admin Dashboard</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">ONS Physiotherapy</a>
+          </li>
+        </ul>
+        <button class="btn btn-outline-success" type="submit" [routerLink]="['/appointment']">Add Appointments</button>
+        <button class="btn btn-outline-success ms-2" type="button">Logout</button>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="container mt-4">
+    <h2 class="text-center">Welcome to our Hospital</h2>
+    
+    <h4 class="mt-5">Current Patient List in Queue</h4>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Patient ID</th>
+          <th>Patient Name</th>
+          <th>Age</th>
+          <th>Dose</th>
+          <th>Prescription</th>
+          <th>Urgency</th>
+          <th>Fees</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let patient of patients">
+          <td>{{ patient.id }}</td>
+          <td>{{ patient.name }}</td>
+          <td>{{ patient.age }}</td>
+          <td>{{ patient.dose }}</td>
+          <td>{{ patient.prescription }}</td>
+          <td>{{ patient.urgency }}</td>
+          <td>{{ patient.fees }}</td>
+          <td>
+            <button (click) = "delete(patient.id)" class="btn btn-danger">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
