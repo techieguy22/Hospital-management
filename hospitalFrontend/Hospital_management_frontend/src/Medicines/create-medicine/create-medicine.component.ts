@@ -28,7 +28,6 @@ export class CreateMedicineComponent {
   constructor(private medicineService:MedicineService,private router:Router) { }
   saveMedicine() {
     this.medicineService.createMedicines(this.medicine).subscribe(data => {
-      console.log(data);
       this.goToMedicineList();
     })
   }

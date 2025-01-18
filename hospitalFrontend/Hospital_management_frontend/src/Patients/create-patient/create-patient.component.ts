@@ -18,7 +18,6 @@ export class CreatePatientComponent {
   constructor(private patientService:PatientService,private router:Router) { }
   savePatient() {
     this.patientService.createPatients(this.patient).subscribe(data => {
-      console.log(data);
       this.goToPatientList();
     })
   }

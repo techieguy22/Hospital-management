@@ -25,7 +25,6 @@ export class UpdateMedicineComponent {
 
   onSubmit(){
     this.medicineService.updateMedicine(this.id,this.medicine).subscribe(data => {
-      console.log(data);
       this.router.navigate(['medicine']);
     })
 

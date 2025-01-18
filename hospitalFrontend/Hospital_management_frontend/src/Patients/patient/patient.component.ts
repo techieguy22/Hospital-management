@@ -27,7 +27,6 @@ export class PatientComponent {
     });
   }
   delete(id:number){
-    console.log("deleted");
     this.patientService.deletePatient(id).subscribe((data) => {
       this.getAppointments();
     })

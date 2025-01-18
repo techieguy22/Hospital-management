@@ -16,7 +16,6 @@ export class CreateAppointmentComponent {
   constructor(private appointmentService:AppointmentService,private router:Router) { }
   saveAppointment() {
     this.appointmentService.createAppointments(this.appointment).subscribe(data => {
-      console.log(data);
       this.goToAppointmentList();
     })
   }

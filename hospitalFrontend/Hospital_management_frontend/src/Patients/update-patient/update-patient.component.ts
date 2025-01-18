@@ -26,7 +26,6 @@ export class UpdatePatientComponent {
   
   onSubmit() {
     this.patientService.updatePatient(this.id,this.patient).subscribe(data => {
-      console.log(data);
       this.goToDocDash();
     })
   }

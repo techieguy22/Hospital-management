@@ -28,7 +28,6 @@ export class AppointmentComponent {
     });
   }
   delete(id:number){
-    console.log("deleted");
     this.appointmentService.deleteAppointment(id).subscribe((data) => {
       this.getAppointments();
     })

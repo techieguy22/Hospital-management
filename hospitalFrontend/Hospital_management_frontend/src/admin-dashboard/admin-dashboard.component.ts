@@ -23,14 +23,11 @@ export class AdminDashboardComponent {
     this.getPatients();    
   }
   getPatients() {
-    console.log(1);
     this.patientService.getPatients().subscribe((data) => {
       this.patients = data;
-      // console.log(3,data);
     });
   }
   delete(id:number){
-    console.log("deleted");
     this.patientService.deletePatient(id).subscribe((data) => {
       this.getPatients();
     })

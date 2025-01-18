@@ -27,7 +27,6 @@ export class MedicineComponent {
     });
   }
   delete(id:number){
-    console.log("deleted"); 
     this.medicineService.deleteMedicine(id).subscribe((data) => {
       this.getMedicines();
     })

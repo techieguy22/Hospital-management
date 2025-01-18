@@ -15,7 +15,6 @@ export class AdminauthService {
 
     isUserLoggedIn() {
         let user = sessionStorage.getItem('username2')
-        console.log(!(user === null))
         return !(user === null)
     }
     logout() {
