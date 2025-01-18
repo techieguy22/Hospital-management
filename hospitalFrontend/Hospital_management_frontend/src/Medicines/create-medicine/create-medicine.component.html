@@ -1,19 +1,65 @@
-<div class=" container">
-    <h2 class = "text-center">Add a new medicine</h2>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">Medicine Dashboard</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">CureWell Solutions</a>
+          </li>
+        </ul>
+        <div class="button-group">
+        <button class="btn btn-primary" type="submit" [routerLink]="['']">Back to Home</button>
+        <!-- <button class="btn btn-primary" type="submit" [routerLink]="['/create-medicine']">Add Medicines</button> -->
+        </div>
+      </div>
+    </div>
+  </nav>
+
+<div class="container mt-5 p-4 shadow-lg rounded bg-light">
+    <h2 class="text-center mb-4 text-primary">Add a New Medicine</h2>
     <form (ngSubmit)="onSubmit()">
-        <div class = "form-group">
-            <label>Id</label>
-            <input type="text" id=" id" placeholder="Enter ID" class="form-control" [(ngModel)]="medicine.id" name="id">
-        </div>
-        <div class = "form-group">
-            <label>Stock</label>
-            <input type="text" id=" stock" placeholder="Enter stock" class="form-control" [(ngModel)]="medicine.stock" name="stock">
-        </div>
-        <div class = "form-group">
-            <label>Drug name</label>
-            <input type="text" id=" drugName" placeholder="Enter drugName" class="form-control" [(ngModel)]="medicine.drugName" name="drugName">
-        </div>
-        <button><a [routerLink]="['/medicine']">Back</a></button>        
-        <button type="submit" class="btn btn-success btn-lg mt-3">Submit Medicine</button>
+      <div class="form-group mb-3">
+        <label for="id" class="form-label fw-bold">Medicine ID</label>
+        <input
+          type="text"
+          id="id"
+          placeholder="Enter Medicine ID"
+          class="form-control form-control-lg"
+          [(ngModel)]="medicine.id"
+          name="id"
+        />
+      </div>
+      <div class="form-group mb-3">
+        <label for="stock" class="form-label fw-bold">Stock</label>
+        <input
+          type="text"
+          id="stock"
+          placeholder="Enter Stock"
+          class="form-control form-control-lg"
+          [(ngModel)]="medicine.stock"
+          name="stock"
+        />
+      </div>
+      <div class="form-group mb-4">
+        <label for="drugName" class="form-label fw-bold">Drug Name</label>
+        <input
+          type="text"
+          id="drugName"
+          placeholder="Enter Drug Name"
+          class="form-control form-control-lg"
+          [(ngModel)]="medicine.drugName"
+          name="drugName"
+        />
+      </div>
+      <div class="d-flex justify-content-between">
+        <button type="button" class="btn btn-outline-primary btn-lg">
+          <a [routerLink]="['/medicine']" class="text-decoration-none text-primary">Back</a>
+        </button>
+        <button type="submit" class="btn btn-success btn-lg">Submit Medicine</button>
+      </div>
     </form>
-</div>
+  </div>
+  

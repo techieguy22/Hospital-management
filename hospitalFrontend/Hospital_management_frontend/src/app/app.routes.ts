@@ -12,6 +12,9 @@ import { UpdatePatientComponent } from '../Patients/update-patient/update-patien
 import { UpdateMedicineComponent } from '../Medicines/update-medicine/update-medicine.component';
 import { ViewPatientComponent } from '../Patients/view-patient/view-patient.component';
 import { DocloginComponent } from '../doclogin/doclogin.component';
+import { AdminauthGuardService } from '../admin-authguard.service';
+import { AdminLoginComponent } from '../admin-login/admin-login.component';
+import { DocauthGuardService } from '../doctor-authguard.service';
 
 export const routes: Routes = [
   {
@@ -20,11 +23,13 @@ export const routes: Routes = [
   },
   {
     path: 'admin',
-    component: AdminDashboardComponent
+    component: AdminDashboardComponent,
+    canActivate: [AdminauthGuardService]
   },
   {
     path: 'appointment',
-    component: AppointmentComponent
+    component: AppointmentComponent,
+    // canActivate: [AdminauthGuardService]
   },
   {
     path: 'medicine',
@@ -32,11 +37,16 @@ export const routes: Routes = [
   },
   {
     path:'doc-dash',
-    component:DocDashComponent
+    component:DocDashComponent,
+    canActivate:[DocauthGuardService]
   },
   {
     path: 'create-patient',
     component: CreatePatientComponent
+  },
+  {
+    path:'admin-login',
+    component:AdminLoginComponent
   },
   {
     path: 'patientList',

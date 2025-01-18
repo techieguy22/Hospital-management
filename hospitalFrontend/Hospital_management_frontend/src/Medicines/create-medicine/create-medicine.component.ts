@@ -1,15 +1,3 @@
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-create-medicine',
-//   standalone: true,
-//   imports: [],
-//   templateUrl: './create-medicine.component.html',
-//   styleUrl: './create-medicine.component.css'
-// })
-// export class CreateMedicineComponent {
-
-// }
 import { Component } from '@angular/core';
 import { Medicine } from '../medicine';
 import { MedicineService } from '../medicine.service';

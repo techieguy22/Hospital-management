@@ -1,23 +1,76 @@
-<div class=" container">
-    <h2 class = "text-center">Add a new appointment</h2>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">Medicine Dashboard</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">CureWell Solutions</a>
+          </li>
+        </ul>
+        <div class="button-group">
+        <button class="btn btn-primary" type="submit" [routerLink]="['']">Back to Home</button>
+        <!-- <button class="btn btn-primary" type="submit" [routerLink]="['/create-medicine']">Add Medicines</button> -->
+        </div>
+      </div>
+    </div>
+  </nav>
+
+<div class="container mt-5 p-4 shadow-lg rounded bg-light">
+    <h2 class="text-center mb-4 text-primary">Add a New Appointment</h2>
     <form (ngSubmit)="onSubmit()">
-        <div class = "form-group">
-            <label>Name</label>
-            <input type="text" id=" name" placeholder="Enter name" class="form-control" [(ngModel)]="appointment.name" name="name">
-        </div>
-        <div class = "form-group">
-            <label>Age</label>
-            <input type="text" id=" age" placeholder="Enter age" class="form-control" [(ngModel)]="appointment.age" name="age">
-        </div>
-        <div class = "form-group">
-            <label>Symptoms</label>
-            <input type="text" id=" symtomps" placeholder="Enter symptoms" class="form-control" [(ngModel)]="appointment.symtomps" name="symtomps">
-        </div>
-        <div class = "form-group">
-            <label>Number</label>
-            <input type="text" id=" number" placeholder="Enter number" class="form-control" [(ngModel)]="appointment.number" name="number">
-        </div>  
-        <button><a [routerLink]="['/appointment']">Back</a></button>        
-        <button type="submit" class="btn btn-success btn-lg mt-3">Submit Appointment</button>
+      <div class="form-group mb-3">
+        <label for="name" class="form-label fw-bold">Name</label>
+        <input
+          type="text"
+          id="name"
+          placeholder="Enter name"
+          class="form-control form-control-lg"
+          [(ngModel)]="appointment.name"
+          name="name"
+        />
+      </div>
+      <div class="form-group mb-3">
+        <label for="age" class="form-label fw-bold">Age</label>
+        <input
+          type="text"
+          id="age"
+          placeholder="Enter age"
+          class="form-control form-control-lg"
+          [(ngModel)]="appointment.age"
+          name="age"
+        />
+      </div>
+      <div class="form-group mb-3">
+        <label for="symptoms" class="form-label fw-bold">Symptoms</label>
+        <input
+          type="text"
+          id="symptoms"
+          placeholder="Enter symptoms"
+          class="form-control form-control-lg"
+          [(ngModel)]="appointment.symtomps"
+          name="symtomps"
+        />
+      </div>
+      <div class="form-group mb-4">
+        <label for="number" class="form-label fw-bold">Contact Number</label>
+        <input
+          type="text"
+          id="number"
+          placeholder="Enter contact number"
+          class="form-control form-control-lg"
+          [(ngModel)]="appointment.number"
+          name="number"
+        />
+      </div>
+      <div class="d-flex justify-content-between">
+        <button type="button" class="btn btn-outline-primary btn-lg">
+          <a [routerLink]="['/appointment']" class="text-decoration-none text-primary">Back</a>
+        </button>
+        <button type="submit" class="btn btn-success btn-lg">Submit Appointment</button>
+      </div>
     </form>
-</div>
+  </div>
+  

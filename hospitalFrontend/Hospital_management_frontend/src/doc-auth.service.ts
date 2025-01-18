@@ -12,4 +12,12 @@ export class DocauthService {
             return false;
         }
     }
+    isUserLoggedIn() {
+        let user = sessionStorage.getItem('username')
+        return !(user === null)
+    }
+    logout() {
+        sessionStorage.removeItem('username');
+    }
+
 }
