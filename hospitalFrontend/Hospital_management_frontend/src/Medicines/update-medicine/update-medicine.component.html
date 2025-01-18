@@ -1,0 +1,18 @@
+<div class="container">
+    <h2 class = "text-center">Update a medicine</h2>
+    <form (ngSubmit)="onSubmit()">
+        <div class = "form-group">
+            <label>Id</label>
+            <input type="text" id=" id" placeholder="Enter ID" class="form-control" [(ngModel)]="medicine.id" name="id">
+        </div>
+        <div class = "form-group">
+            <label>Stock</label>
+            <input type="text" id=" stock" placeholder="Enter stock" class="form-control" [(ngModel)]="medicine.stock" name="stock">
+        </div>
+        <div class = "form-group">
+            <label>Drug name</label>
+            <input type="text" id=" drugName" placeholder="Enter drugName" class="form-control" [(ngModel)]="medicine.drugName" name="drugName">
+        </div>
+        <button><a [routerLink]="['/medicine']">Back</a></button>        
+    </form>
+</div>

@@ -23,15 +23,17 @@ public class PatientController {
 
     @Autowired
     PatientRepository patientRepository;
+
     @PostMapping("/insert")
-    public Patient createPatient(@RequestBody Patient patient){
+    public Patient createPatient(@RequestBody Patient patient) {
         return patientRepository.save(patient);
     }
 
     @GetMapping("/list")
-    public List<Patient> getAll(){
+    public List<Patient> getAll() {
         return patientRepository.findAll();
     }
+
     @DeleteMapping("/patient/delete/{id}")
     public ResponseEntity<Map<String, Boolean>> deleteMedicine(@PathVariable long id) throws AttributeNotFoundException {
         Patient patient = patientRepository.findById(id)
@@ -39,13 +41,14 @@ public class PatientController {
 
         patientRepository.delete(patient);
 
-        Map<String, Boolean> response = new HashMap<String,Boolean>();
+        Map<String, Boolean> response = new HashMap<String, Boolean>();
         response.put("deleted", Boolean.TRUE);
 
         return ResponseEntity.ok(response);
     }
-    @PutMapping("patient/update/{id")
-    public ResponseEntity<Patient>updatePatient(@PathVariable long id, @RequestBody Patient patientDetails)throws AttributeNotFoundException{
+
+    @PutMapping("patient/update/{id}")
+    public ResponseEntity<Patient> updatePatient(@PathVariable long id, @RequestBody Patient patientDetails) throws AttributeNotFoundException {
         Patient patient = patientRepository.findById(id)
                 .orElseThrow(() -> new AttributeNotFoundException("Appointment with id " + id + " not found"));
         patient.setAge(patientDetails.getAge());
@@ -53,11 +56,20 @@ public class PatientController {
         patient.setDose(patientDetails.getDose());
         patient.setBlood(patientDetails.getBlood());
         patient.setId(patientDetails.getId());
-        patient.setFees(patientDetails.getFees() );
+        patient.setFees(patientDetails.getFees());
         patient.setPrescription(patientDetails.getPrescription());
         patient.setUrgency(patientDetails.getUrgency());
         Patient savedPatient = patientRepository.save(patient);
         return ResponseEntity.ok(savedPatient);
     }
+
+    @GetMapping("patient/{id}")
+    public ResponseEntity<Patient> getPatientById(@PathVariable long id)throws AttributeNotFoundException{
+
+    Patient patient = patientRepository.findById(id).orElseThrow(() -> new AttributeNotFoundException("Patient not found with id:" + id));
+    return ResponseEntity.ok(patient);
+    }
+
+
 
 }

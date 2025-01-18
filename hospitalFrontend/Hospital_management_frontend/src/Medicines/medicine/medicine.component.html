@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">Medicine Dashboard</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">ONS Physiotherapy</a>
+          </li>
+        </ul>
+        <button class="btn btn-primary" type="submit" [routerLink]="['']">Back to Home</button>
+        <button class="btn btn-primary" type="submit" [routerLink]="['/create-medicine']">Add Medicines</button>
+        
+      </div>
+    </div>
+  </nav>
+  
+  <div class="container mt-5">
+    <h4 class="text-center mb-4">Medicines</h4>
+    <table class="table table-bordered table-hover shadow-sm rounded">
+      <thead class="table-dark">
+        <tr>
+          <th>Medicine ID</th>
+          <th>Drug Name</th>
+          <th>Stock</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let medicine of medicines">
+          <td>{{ medicine.id }}</td>
+          <td>{{ medicine.drugName }}</td>
+          <td>{{ medicine.stock }}</td>
+          <td>
+            <button (click) = "delete(medicine.id)" class="btn btn-danger">Delete</button>
+            <button (click) = "update(medicine.id)" class="btn btn-primary ms-2">Update</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

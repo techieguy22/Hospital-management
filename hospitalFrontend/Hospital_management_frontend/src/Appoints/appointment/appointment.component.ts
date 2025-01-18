@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Appointment } from '../appointment';
+import { Appointment } from '../appointment'; 
 import { AppointmentService } from '../appointment.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';

@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { PatientService } from '../patient.service';
-import { Patient } from '../patient';
+import { PatientService } from '../Patients/patient.service';
+import { Patient } from '../Patients/patient';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { AdminauthService } from '../admin-auth.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -14,7 +15,7 @@ import { RouterModule } from '@angular/router';
 })
 export class AdminDashboardComponent {
   patients: Patient[] =[];
-  constructor(private patientService: PatientService) {
+  constructor(private patientService: PatientService,private adminauthService:AdminauthService,private router:Router) {
     
   }
 
@@ -25,7 +26,7 @@ export class AdminDashboardComponent {
     console.log(1);
     this.patientService.getPatients().subscribe((data) => {
       this.patients = data;
-      console.log(3,data);
+      // console.log(3,data);
     });
   }
   delete(id:number){
@@ -34,7 +35,9 @@ export class AdminDashboardComponent {
       this.getPatients();
     })
   }
-
-
+  logout(){
+    this.adminauthService.logout();
+    this.router.navigate(['home']);
+  }
 
 }

@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { Appointment } from '../appointment';
 import { AppointmentService } from '../appointment.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-create-appointment',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,RouterModule],
   templateUrl: './create-appointment.component.html',
   styleUrl: './create-appointment.component.css'
 })

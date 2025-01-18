@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Admin Dashboard</a>
+      <a class="navbar-brand fw-bold" href="#">Admin Dashboard</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -10,26 +10,25 @@
             <a class="nav-link active" aria-current="page" href="#">ONS Physiotherapy</a>
           </li>
         </ul>
-        <button class="btn btn-outline-success" type="submit" [routerLink]="['/appointment']">Add Appointments</button>
-        <button class="btn btn-outline-success ms-2" type="button" (click)="logout()">Logout</button>
+        <button class="btn btn-primary" type="submit" [routerLink]="['']">Back to Home</button>
+        <button class="btn btn-primary" type="submit" [routerLink]="['/create-patient']">Add Patients</button>
+        
       </div>
     </div>
   </nav>
   
-  <div class="container mt-4">
-    <h2 class="text-center">Welcome to our Hospital</h2>
-    
-    <h4 class="mt-5">Current Patient List in Queue</h4>
-    <table class="table table-striped">
-      <thead>
+  <div class="container mt-5">
+    <h4 class="text-center mb-4">Patients</h4>
+    <table class="table table-bordered table-hover shadow-sm rounded">
+      <thead class="table-dark">
         <tr>
           <th>Patient ID</th>
           <th>Patient Name</th>
           <th>Age</th>
-          <th>Dose</th>
+          <th>Blood_group</th>
           <th>Prescription</th>
           <th>Urgency</th>
-          <th>Fees</th>
+          <th>Dose</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -38,10 +37,10 @@
           <td>{{ patient.id }}</td>
           <td>{{ patient.name }}</td>
           <td>{{ patient.age }}</td>
-          <td>{{ patient.dose }}</td>
+          <td>{{ patient.blood_group}}</td>
           <td>{{ patient.prescription }}</td>
           <td>{{ patient.urgency }}</td>
-          <td>{{ patient.fees }}</td>
+          <!-- <td>{{ patient.dose }}</td> -->
           <td>
             <button (click) = "delete(patient.id)" class="btn btn-danger">Delete</button>
           </td>

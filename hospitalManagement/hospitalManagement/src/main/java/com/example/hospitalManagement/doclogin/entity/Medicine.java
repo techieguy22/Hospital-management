@@ -22,11 +22,11 @@ public class Medicine {
         this.id = id;
     }
 
-    public String getDruName() {
+    public String getDrugName() {
         return drugName;
     }
 
-    public void setDrug_name(String drugName) {
+    public void setDrugName(String drugName) {
         this.drugName = drugName;
     }
 

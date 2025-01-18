@@ -1,0 +1,32 @@
+<div class="container">
+    <h2 class = "text-center">Update a patient</h2>
+    <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" id=" name" placeholder="Enter name" class="form-control" [(ngModel)]="patient.name" name="name">
+    </div>
+    <div class = "form-group">
+        <label>Age</label>
+        <input type="text" id=" age" placeholder="Enter age" class="form-control" [(ngModel)]="patient.age" name="age">
+    </div>
+    <div class = "form-group">
+        <label>Blood Group</label>
+        <input type="text" id=" blood_group" placeholder="Enter blood_group" class="form-control" [(ngModel)]="patient.blood_group" name="blood_group">
+    </div>
+    <div class = "form-group">
+        <label>Prescription</label>
+        <input type="text" id=" prescription" placeholder="Enter prescription" class="form-control" [(ngModel)]="patient.prescription" name="prescription">
+    </div>
+    <div class = "form-group">
+        <label>Urgency</label>
+        <input type="text" id=" urgency" placeholder="Enter urgency" class="form-control" [(ngModel)]="patient.urgency" name="urgency">
+    </div>
+    <div class = "form-group">
+        <label>Dose</label>
+        <input type="text" id=" dose" placeholder="Enter dose" class="form-control" [(ngModel)]="patient.dose" name="dose">
+    </div>
+    <button><a [routerLink]="['/patient']">Back</a></button>        
+    <button type="submit" class="btn btn-success btn-lg mt-3">Submit Patient</button>
+
+    </form>
+</div>

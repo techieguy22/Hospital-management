@@ -46,7 +46,7 @@ public class AppointmentController {
 
         return ResponseEntity.ok(response);
     }
-    @PutMapping("appointment/update/{id")
+    @PutMapping("appointment/update/{id}")
     public ResponseEntity<Appointment>updateAppointment(@PathVariable long id, @RequestBody Appointment appointmentDetails)throws AttributeNotFoundException{
         Appointment appointment = appointmentRepository.findById(id)
                 .orElseThrow(() -> new AttributeNotFoundException("Appointment with id " + id + " not found"));

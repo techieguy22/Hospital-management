@@ -45,16 +45,23 @@ public class MedicineController {
 
         return ResponseEntity.ok(response);
     }
-    @PutMapping("medicine/update/{id")
+    @PutMapping("medicine/update/{id}")
     public ResponseEntity<Medicine>updateMedicine(@PathVariable long id, @RequestBody Medicine medicineDetails)throws AttributeNotFoundException{
         Medicine medicine = medicineRepository.findById(id)
                 .orElseThrow(() -> new AttributeNotFoundException("Appointment with id " + id + " not found"));
-        medicine.setDrug_name(medicineDetails.getDruName());
+        medicine.setDrugName(medicineDetails.getDrugName());
         medicine.setStock(medicineDetails.getStock());
         medicine.setId(medicineDetails.getId());
         Medicine savedMedicine = medicineRepository.save(medicine);
         return ResponseEntity.ok(savedMedicine);
     }
+    @GetMapping("medicine/{id}")
+    public ResponseEntity<Medicine> getMedicineById(@PathVariable long id)throws AttributeNotFoundException{
+
+        Medicine medicine = medicineRepository.findById(id).orElseThrow(() -> new AttributeNotFoundException("Medicine not found with id:" + id));
+        return ResponseEntity.ok(medicine);
+    }
+
 
 }
 
